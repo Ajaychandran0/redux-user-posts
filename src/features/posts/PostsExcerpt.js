@@ -2,8 +2,9 @@ import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from "react-router-dom";
+import React from "react";
 
-const PostsExcerpt = ({post}) => {
+let PostsExcerpt = ({post}) => {
   return (
     <div>
       <article>
@@ -19,5 +20,8 @@ const PostsExcerpt = ({post}) => {
     </div>
   )
 }
+// this React.memo allows the component not to rerender if the prop it recieves does not change.
+// so PostExcerpt only rerenders when the 'post' prop it recieves changes. 
+PostsExcerpt = React.memo(PostsExcerpt)
 
 export default PostsExcerpt
